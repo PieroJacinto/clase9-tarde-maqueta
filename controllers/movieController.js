@@ -47,10 +47,35 @@ const movieController = {
     },
     create: function(req, res){
         //Mostrar formulario de carga de películas
+        db.Genre.findAll()
+        .then( function (genres){
+            return res.render("movieNew", { genres })
+        })
+        .catch( function (err){
+            console.log(err)
+        })
        
     },
     store: function(req, res){
-        // Debera guardar una pelicula en la db        
+        // Debera guardar una pelicula en la db 
+        const data = req.body;
+        
+        const movie = {
+            title: data.title,
+            rating: data.rating,
+            awards: data.awards,
+            release_date: data.release_date,
+            length: data.length,
+            genre_id: data.genre_id
+        }
+        db.Movie.create(movie)
+        .then( function (data){
+            return res.redirect("/")
+        })
+        .catch( function( err ){
+            console.log(err)
+        })
+        
     },
     destroy: function(req, res){
         // Debera destruir una pelicula segun su id.       

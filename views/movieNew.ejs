@@ -11,7 +11,7 @@
     <a href="/movies/recomended">Recomendadas</a>
     <h2>Nueva Película</h2>
     <!-- completar action y method -->
-    <form action="" method="">
+    <form action="/movies/store" method="POST">
       <div>
         <input type="text" name="title" value="" placeholder="title">
       </div>
@@ -31,6 +31,9 @@
         <label>Género</label>
         <select name="genre_id">
           <!-- COMPLETAR EL OPTION DELK SELECT CON DATOS DINAMICOS DE LOS GENEROS -->
+          <% for( let i = 0; i < genres.length; i++ ) { %>
+            <option value="<%= genres[i].id %>"> <%= genres[i].name %></option>          
+          <% } %>
         </select>
       </div>
       <button type="submit">Guardar</button>
