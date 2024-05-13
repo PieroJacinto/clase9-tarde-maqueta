@@ -16,10 +16,12 @@
       <button type="submit">Buscar</button>
     </form>
     <ul>     
+      <!-- COMPLETAR CON DATOS ITERANDO SOBRE TODAS LAS PELICULAS -->
+      <% for( let i = 0; i < movies.length; i++ ) { %>
         <li>
-          <!-- COMPLETAR CON DATOS ITERANDO SOBRE TODAS LAS PELICULAS -->
-          <a href="/movies/detail/  "> ACA VA EL TITULO DE LA PELICULA</a>
-        </li>      
+          <a href="/movies/detail/<%= movies[i].id %>"> <%= movies[i].title %> </a>
+        </li>   
+      <% } %>
     </ul>  
   </body>
 </html>

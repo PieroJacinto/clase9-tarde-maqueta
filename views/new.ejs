@@ -9,14 +9,16 @@
     <a href="/">Home</a>
     <ul>
        <!-- iterar sobre las peliculas y mostrar la info -->
-      
+      <% for( let i = 0; i < movies.length; i++ ) { %>
         <li>
-          <a href="/movies/detail/   >">/a>
-          <p>Fecha de estreno:  </p> 
-          <p>Premios: 
-          <p>Rating:  
-          </p>
+          <a href="/movies/detail/<%= movies[i].id %>>"> ver detalle </a>
+          <p>Fecha de estreno: <%= movies[i].release_date %> </p> 
+          <p>Premios: <%= movies[i].awards %></p>
+          <p>Rating:  <%= movies[i].rating %></p>
+          
         </li>
+      
+      <% } %>
       
     </ul>
   </body>

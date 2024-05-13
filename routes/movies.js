@@ -9,6 +9,7 @@ router.get('/recomended', movieController.recomended);
 router.get('/search', movieController.search);
 router.get('/create', movieController.create);
 
+
 // ACA ABAJO VAN LAS RUTAS PAR LOS FORMULARIOS
 
 

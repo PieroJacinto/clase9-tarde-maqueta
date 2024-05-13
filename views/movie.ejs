@@ -7,11 +7,13 @@
   <body>
     <h1>UdeSA Movies</h1>
     <!-- COMPLETAR CON DATOS DE LA PELICULA SELECCIONADA QUE VIENE POR EL CONTROLLER -->
-    <p>Datos de la película  </p>
+    <p>Datos de la película: <%= movie.title %> </p>
     <a href="/">Home</a>
     
-    <p>Rating:  </p>
-    <p>Duración:> </p>
+    <p>Rating: <%= movie.rating %> </p>
+    <p>Duración: <%= movie.length %> min</p>
+    <p> Fecha de estreno: <%= movie.release_date %></p>  
+
 
     
     <button> Modificar </button>
