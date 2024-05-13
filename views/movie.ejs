@@ -15,8 +15,9 @@
     <p> Fecha de estreno: <%= movie.release_date %></p>  
 
 
-    
-    <button> Modificar </button>
+    <form action="/movies/editMovie/<%= movie.id %>" method="get">
+      <button type="submit"> Modificar </button>
+    </form>
     
   </body>
 </html>

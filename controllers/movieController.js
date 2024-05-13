@@ -77,6 +77,40 @@ const movieController = {
         })
         
     },
+    editMovie: function ( req, res ) {
+        const id = req.params.id;
+        movies.findByPk(id)
+        .then( function(movie){
+            if(!movie){
+                return res.status(404).send("Pelicula no encontrada")
+            }
+            db.Genre.findAll()
+            .then( function (genres){
+                res.render("editMovie", {movie: movie, genres: genres})
+            })
+            .catch( function (err){
+                console.log(err)
+            })
+        })
+        .catch( function(err){
+            console.log(err)
+        })
+    },
+    update: function (req, res){
+        const id = req.params.id;
+        const movie = req.body;
+        movies.update(movie,{
+            where: {
+                id: id
+            }
+        })
+        .then(function(result){
+            return res.redirect(`/movies/detail/${id}`)
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+    },
     destroy: function(req, res){
         // Debera destruir una pelicula segun su id.       
     }
